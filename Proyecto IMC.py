@@ -36,22 +36,28 @@ while inicio_fin == 1:
 
         # Función para agregar consejos
         categoria = categoria_imc(imc)
-
-        def consejos(categoria):
+        
+        # Lista de Consejos
+        lista_consejos = ["Considera consultar a un nutriólogo para evaluar tu dieta y asegurarte de que estás recibiendo los nutrientes necesarios.",
+                          "¡Felicidades! Mantén un estilo de vida saludable con una dieta equilibrada y ejercicio regular.",
+                          "Podrías beneficiarte de una dieta más equilibrada y un aumento en la actividad física. Consulta a un profesional de la salud si es necesario.",
+                          "Es importante que hables con un profesional de la salud para obtener orientación sobre cómo reducir tu peso de manera segura."]
+        
+        def consejos(categoria, lista_consejos):
             if categoria == "un bajo peso":
-                return "Considera consultar a un nutriólogo para evaluar tu dieta y asegurarte de que estás recibiendo los nutrientes necesarios."
+                return lista_consejos[0]
             elif categoria == "un peso normal":
-                return "¡Felicidades! Mantén un estilo de vida saludable con una dieta equilibrada y ejercicio regular."
+                return lista_consejos[1]
             elif categoria == "sobre peso":
-                return "Podrías beneficiarte de una dieta más equilibrada y un aumento en la actividad física. Consulta a un profesional de la salud si es necesario."
+                return lista_consejos[2]
             elif categoria == "obesidad":
-                return "Es importante que hables con un profesional de la salud para obtener orientación sobre cómo reducir tu peso de manera segura."
+                return lista_consejos[3]
             
         # Mostrar los resultados
         print("\n _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n")
         print("Tu IMC es de", ("%.2f"%(calcular_imc(peso, altura))))
         print("Según tu IMC, tienes", categoria_imc(imc))
-        print(consejos(categoria))
+        print(consejos(categoria, lista_consejos))
         print(" _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n")
         
         start = int(input("Presione 1 si quiere volver a usar el programa o 0 si ya terminó." ))
